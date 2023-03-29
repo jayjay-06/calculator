@@ -1,0 +1,31 @@
+.container {
+    flex-shrink: 0;
+    flex-grow: 1;
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    max-width: 500px;
+    width: 500px;
+    max-height: 1000px;
+    background-color: cyan;
+    gap: 2px;
+    align-self: center;
+}
+
+.main {
+    display: flex;
+    justify-content: center;
+    justify-content: space-evenly;
+    flex-direction: column;
+}
+button {
+    height: 70px;
+    font-size: 30px;
+}
+.screen {
+    display: flex;
+    align-self: center;
+    max-width: 500px;
+    height: 150px;
+    background-color: rgb(255, 0, 0);
+    
+}
