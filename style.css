@@ -5,27 +5,68 @@
     grid-template-columns: auto auto auto auto;
     max-width: 500px;
     width: 500px;
-    max-height: 1000px;
-    background-color: cyan;
+    height: 600px;
+    
+    background-color: rgb(48, 48, 48);
     gap: 2px;
-    align-self: center;
 }
 
 .main {
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+
+}
+.calc {
     display: flex;
-    justify-content: center;
-    justify-content: space-evenly;
-    flex-direction: column;
+   flex-direction: column;
+   align-items: center;
+   border: 5px solid rgb(49, 49, 49);
+   height: 820px;
+   box-sizing: border-box;
+   box-shadow: 5px 5px 10px gray;
+   border-radius: 5px;
 }
 button {
-    height: 70px;
+    height: 120px;
     font-size: 30px;
+    border-radius: 5px;
+    border-bottom: 5px inset gray;
+    border-right: 5px outset rgb(207, 207, 207);
 }
 .screen {
-    display: flex;
-    align-self: center;
     max-width: 500px;
-    height: 150px;
-    background-color: rgb(255, 0, 0);
-    
+    width: 500px;
+    height: 200px;
+    background-color: rgb(48, 48, 48);
+    flex-direction: column;
+    gap: 0px 1rem;
+}
+
+.lcdscreen{
+    align-self: center;
+    border-bottom: 1px solid gray;
+    max-width: 500px;
+    width: 450px;
+    height: 80px;
+    background-color: rgb(29, 206, 123);
+
+    margin-left: 25px;
+    margin-right: 25px;
+    color: black;
+    font-family: "Century Gothic";
+}
+.upper {
+    margin-bottom: 0px;
+    margin-top: 10px;
+    font-size: 60px;
+    border-top: 5px outset gray;
+    border-left: 5px outset gray;
+}
+.lower {
+    margin-top: 0px;
+    margin-bottom: 10px;
+    text-align: right ;
+    font-size: 70px;
+    border-left: 5px outset gray;
 }
