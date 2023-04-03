@@ -6,7 +6,6 @@
     max-width: 500px;
     width: 500px;
     height: 600px;
-    
     background-color: rgb(48, 48, 48);
     gap: 2px;
 }
@@ -25,22 +24,54 @@
    height: 820px;
    box-sizing: border-box;
    box-shadow: 5px 5px 10px gray;
-   border-radius: 5px;
+   border-radius: 10px;
 }
 button {
     height: 120px;
-    font-size: 30px;
-    border-radius: 5px;
-    border-bottom: 5px inset gray;
-    border-right: 5px outset rgb(207, 207, 207);
+    width: 120px;
+    font-size: 50px;
+    border-radius: 100%;
+    background-color: rgb(100, 100, 100);
+    border: 1px solid rgb(100, 100, 100);
+    color: white;
 }
+button:hover{
+    background-color: rgb(110, 110, 110);
+}
+
+button:active {
+    background-color: rgb(170, 170, 170);
+    color: black;
+}
+
 .screen {
-    max-width: 500px;
+    max-width: 500px;   
     width: 500px;
     height: 200px;
     background-color: rgb(48, 48, 48);
     flex-direction: column;
     gap: 0px 1rem;
+}
+.operator{
+    background-color: rgb(255, 184, 52);
+}
+.clearonce, .clearall, .del {
+    background-color: rgb(255, 65, 65);
+}
+.operator:hover {
+    background-color: rgb(250, 191, 82);
+}
+
+.operator:active {
+    background-color: rgb(255, 206, 115);
+}
+
+.clearonce:hover , .clearall:hover,  .del:hover {
+    background-color: rgb(255, 78, 78);
+}
+
+.clearonce:active , .clearall:active,  .del:active {
+    background-color: rgb(255, 117, 117);
 }
 
 .lcdscreen{
@@ -49,12 +80,13 @@ button {
     max-width: 500px;
     width: 450px;
     height: 80px;
-    background-color: rgb(29, 206, 123);
-
+    background-color: rgb(48, 48, 48);
     margin-left: 25px;
     margin-right: 25px;
     color: black;
     font-family: "Century Gothic";
+    color: white;
+    
 }
 .upper {
     margin-bottom: 0px;
