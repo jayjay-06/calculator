@@ -8,6 +8,8 @@ const deletenum =document.getElementById('del');
 let numberarray=[];
 let screentext = false;
 let currentoperator = null;
+let firstnumber=0;
+let secondnumber=0;
 
 
 clearallinput.addEventListener('click',() => clearall());
@@ -56,25 +58,22 @@ numberinput.forEach((button) =>{button.addEventListener('click',() => inputed(bu
 
 operator.forEach((button) =>{button.addEventListener('click',() => compute(button.textContent));});
 
-
+/**
+ * 
+ * @param {selected operator} operate  this will get the operator
+ */
 
 function compute(operate){
     if(currentoperator!==operate){
         currentoperator =operate;
-    if(screentext==true){
-        if(numberarray[numberarray.length-1]==lcdupper.textContent){
-        }
-        else{                   
-        numberarray.push(lcdupper.textContent);
-        screentext=false;
-        }
+        firstnumber=parseFloat(lcdupper.textContent);
     }
+
 }
 
 
 
-console.log(numberarray, screentext, currentoperator);
-}
+
 
 function addition(){
 
