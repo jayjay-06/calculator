@@ -23,7 +23,6 @@ function inputed(num){
     screentext=false;
  }
 else{
-
         screentext=true;
     lcdupper.textContent+=num;
 }
@@ -51,10 +50,11 @@ function del() {
 
 
 
+
+
 numberinput.forEach((button) =>{button.addEventListener('click',() => inputed(button.textContent));});
 
 operator.forEach((button) =>{button.addEventListener('click',() => compute(button.textContent));});
-
 
 
 
@@ -62,10 +62,16 @@ function compute(operate){
     if(currentoperator!==operate){
         currentoperator =operate;
     if(screentext==true){
+        if(numberarray[numberarray.length-1]==lcdupper.textContent){
+        }
+        else{                   
         numberarray.push(lcdupper.textContent);
         screentext=false;
+        }
     }
 }
+
+
 
 console.log(numberarray, screentext, currentoperator);
 }
