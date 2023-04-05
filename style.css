@@ -8,12 +8,15 @@
     height: 600px;
     background-color: rgb(48, 48, 48);
     gap: 2px;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
 }
 
 .main {
    display: flex;
    flex-direction: column;
    align-items: center;
+   border-radius: 20px;
 
 }
 .calc {
@@ -23,8 +26,8 @@
    border: 5px solid rgb(49, 49, 49);
    height: 820px;
    box-sizing: border-box;
-   box-shadow: 5px 5px 10px gray;
-   border-radius: 10px;
+   box-shadow: 5px 10px 20px gray;
+   border-radius: 30px;
 }
 button {
     height: 120px;
@@ -51,6 +54,8 @@ button:active {
     background-color: rgb(48, 48, 48);
     flex-direction: column;
     gap: 0px 1rem;
+    border-top-right-radius: 20px;
+    border-top-left-radius: 20px;
 }
 .operator{
     background-color: rgb(255, 184, 52);
