@@ -6,7 +6,9 @@ const clearallinput =document.getElementById('CE');
 const clearonce =document.getElementById('C');
 const deletenum =document.getElementById('del');
 let lcdanswer = document.getElementById('lcdscreenlower');
+let results=0;
 let screentext = false;
+let toclear=false;
 let currentoperator = null;
 let firstnumber=0;
 let firsthasnumber = false
@@ -20,28 +22,50 @@ deletenum.addEventListener('click', () => del());
 equals.addEventListener('click', () => operatenow(currentoperator,firstnumber,secondnumber))
 
 
+document.addEventListener("keydown", function(event){
+    if (event.key>="0" && event.key <="9"){
+        inputed(event.key);
+    }
+    if (event.key==="/" || event.key ==="*" || event.key ==="-" || event.key ==="+"){
+        compute(event.key);
+    }
+    if (event.key==="Backspace"){
+        del();
+    }
+    if (event.key==="Enter"){
+        operatenow(currentoperator,firstnumber,secondnumber);
+    }
+    
+});
+
+
 
 
 function inputed(num){
 
-if(lcdupper.textContent==='0' || screentext){
-        clearone();}
-         if(lcdupper.textContent.length == 12 || lcdupper.textContent=='ERROR'){
-            lcdupper.textContent ='ERROR';
-            screentext=false;
-         }
-         else {
-            lcdupper.textContent+=num;
-            if(firsthasnumber){
-            secondnumber=parseFloat(lcdupper.textContent);
-            secondhasnumber=true
-            }
-         }
+if(toclear){
+        clearone();
+    }
+    lcdupper.textContent+=num;
+    if(firsthasnumber==false || currentoperator===null){
+        firstnumber=parseFloat(lcdupper.textContent);
+                firsthasnumber=true;
+    }
+    else if(currentoperator!==null && firsthasnumber){
+        secondnumber=parseFloat(lcdupper.textContent);
+        secondhasnumber=true;
+    }
+    if(lcdupper.textContent.length===12 || lcdupper.textContent=='ERROR'){
+        lcdupper.textContent='ERROR';
+        firsthasnumber=false;
+        currentoperator=null;
+        return num=null;
+    }
 }
 
 function clearone() {
     lcdupper.textContent=''
-    screentext=false;
+    toclear=false;
 }
 
 
@@ -61,6 +85,14 @@ function clearall(){
 function del() {
     if(lcdupper.textContent!=='ERROR'){
     lcdupper.textContent = lcdupper.textContent.toString().slice(0, -1);
+    if(firsthasnumber==false || currentoperator===null){
+        firstnumber=parseFloat(lcdupper.textContent);
+                firsthasnumber=true;
+    }
+    else if(currentoperator!==null && firsthasnumber){
+        secondnumber=parseFloat(lcdupper.textContent);
+        secondhasnumber=true;
+    }
     }
 }
 
@@ -74,23 +106,20 @@ operator.forEach((button) =>{button.addEventListener('click',() => compute(butto
  */
 
 function compute(operate){
-    if(currentoperator==null || firsthasnumber==false){
-        currentoperator = operate;
-        firstnumber=parseFloat(lcdupper.textContent);
-        firsthasnumber=true;
-        screentext=true;
+    if(firsthasnumber==true && secondhasnumber===false){
+        currentoperator=operate;
+        toclear=true;
     }
-    if(secondhasnumber){
-        currentoperator = operate;
-        lcdanswer.textContent=0;
-        firsthasnumber=false;
-        screentext=true;
+    else if(firsthasnumber && secondhasnumber){
+        operatenow(currentoperator,firstnumber,secondnumber);
+        currentoperator=operate;
+        firstnumber=results;
         secondhasnumber=false;
-        operatenow(currentoperator,firstnumber,secondnumber)
+        toclear=true;
     }
 
-    }
 
+    }
 
 
     function operatenow(operand, num1, num2){
@@ -107,14 +136,18 @@ function compute(operate){
     }
 
 function addition(a,b){
-    return lcdanswer.textContent = a+b;
+        results=a+b;
+    return lcdanswer.textContent = results;
 }
 function substact(a,b) {
-    return lcdanswer.textContent = a-b;
+    results=a-b;
+    return lcdanswer.textContent = results;
 }
 function multiply(a,b) {
-    return lcdanswer.textContent = a*b;
+    results=a*b;
+    return lcdanswer.textContent = results;
 }
 function divide(a,b) {
-    return lcdanswer.textContent = a/b;
+    results=a/b;
+    return lcdanswer.textContent = results;
 }
