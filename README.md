@@ -2,4 +2,4 @@
 
 #Live View
 
-<a href="jayjay-06.github.io/calculator">Click this link</a>
+[Click this link for live view](jayjay-06.github.io/calculator)
