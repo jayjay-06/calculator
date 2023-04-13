@@ -6,6 +6,8 @@ const clearallinput =document.getElementById('CE');
 const clearonce =document.getElementById('C');
 const deletenum =document.getElementById('del');
 let lcdanswer = document.getElementById('lcdscreenlower');
+const point = document.getElementById('point');
+let haspoint=false;
 let results=0;
 let screentext = false;
 let toclear=false;
@@ -15,13 +17,20 @@ let firsthasnumber = false
 let secondhasnumber=false
 let secondnumber=0;
 
-
+point.addEventListener('click', () => pointfunction());
 clearallinput.addEventListener('click',() => clearall());
 clearonce.addEventListener('click', () => clearone());
 deletenum.addEventListener('click', () => del());
 equals.addEventListener('click', () => operatenow(currentoperator,firstnumber,secondnumber))
 
-
+function pointfunction(){
+    if(lcdupper.textContent.includes(".")){
+    }
+    else{
+        inputed(point.textContent);
+        haspoint=true
+    }
+}
 document.addEventListener("keydown", function(event){
     if (event.key>="0" && event.key <="9"){
         inputed(event.key);
